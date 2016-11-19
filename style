@@ -1,0 +1,19 @@
+metodos camelCase
+class CamelCase
+atributos under_score
+
+Metodos
+/**
+ * Descripcion 
+ *
+ * Parametros
+ * nombre -> descripcion
+ *
+ * Return
+ * nombre -> descripcion
+ */
+
+ Clase
+ /**
+  * Descripcion
+  */
