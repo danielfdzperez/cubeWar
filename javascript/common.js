@@ -12,11 +12,41 @@ function updateMRUV(pos, speed, t){
 	return obj
 }
 
-function MultidimensionalArray(y){
-    var array = []
-    for (var i = 0; i < y; i++)
-       array[i] = []
-   return array
+/**
+ *
+ * Construye un array de multiples dimensiones
+ *
+ * Parametros
+ * dim -> dimensiones del array
+ * size -> El tamaño de cada dimension
+ *
+ * Return
+ * Un array multidimensional
+ *
+ * Ej
+ * var a = MultidimensionalArray(3,2)
+ * a -> [ [ [],[] ] , [ [],[] ] ]
+ */
+function MultidimensionalArray(dim, size){
+    return buildMultidimensionalArray(dim, size, size)
+    function buildMultidimensionalArray(dim, n, size){
+	//Si la dimension llega al final solo se devuelve un array
+	if(dim <= 1){
+	    var array = []
+	    return array
+	}
+
+	//Si se llega al final del tamaño de una dimension
+	if(n <= 1){
+	    var array = []
+	    array[n-1] = rec(dim-1, size, size)
+	    return array
+	}
+
+	var array = rec(dim, n-1, size)
+	array[n-1] = rec(dim-1, size, size)
+	return array
+    }
 }
 
 /**
