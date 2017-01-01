@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css">
+    <!--<script src="frame_rate_counter.js"></script>-->
+    <script src="javascript/Charapter.js"></script>
+    <script src="javascript/GameObject.js"></script>
+    <script src="javascript/chrono.js"></script>
+    <script src="javascript/common.js"></script>
+    <script src="javascript/events.js"></script>
+    <script src="javascript/point.js"></script>
+    <script src="javascript/tile.js"></script>
+    <script src="javascript"></script>
+    <script src="javascript/world.js"></script>
+    <script>
+       
+       var world
+       var map =
+       [
+       	[1, 1, 1, 1, 1, 1, 1],
+       	[1, 0, 0, 1, 0, 0, 1],
+       	[1, 0, 0, 1, 0, 0, 1],
+       	[1, 0, 0, 1, 0, 0, 1],
+       	[1, 0, 0, 0, 0, 0, 2],
+       	[1, 1, 1, 1, 1, 1, 1]	
+       ]
+       window.onload = function(){       	
+	   	world = new World("canvas",map, 30)	   
+       }
+    </script>
+</head>
+<body>
+    <div id="menu">
+    </div>
+    <div id="game">
+        <canvas id ="canvas" width="650" height="650"></canvas>
+    </div>
+</body>
+</html>

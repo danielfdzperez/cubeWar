@@ -3,17 +3,21 @@
  * Es la encargada de hacer que el juego se ejecute
  */
 function World(canvas, map, tile_size/*, callback*/){
+    debugger
     this.canvas      = document.getElementById(canvas)
     this.ctx         = this.canvas.getContext('2d')
     this.tile_size   = tile_size
     this.map         = map
     //this.player      = new Player(new Point(0,0), this)
-    this.enemy       = MultidimensionalArray(3,map.length)
-    this.event       = new Events()
+    //this.enemy       = MultidimensionalArray(3,map.length)
+    //this.event       = new Events()
     //this.chrono      = new Chrono()
-    this.running     = false
-    this.time_out    = null
+    //this.running     = false
+    //this.time_out    = null
     //this.callback    = callback
+
+    this.newLevel(1)
+
 }
 
 World.prototype.start = function(lvl){
@@ -30,6 +34,12 @@ World.prototype.stop = function(){
 }
 
 World.prototype.newLevel = function(lvl){
+    this.canvas.width  = this.tile_size * this.map[0].length
+    this.canvas.height = this.tile_size * this.map.length
+
+    this.conjuntotile = [new Tile(true, this.tile_size, "white"), new Tile(false, this.tile_size, "black"), new Tile(true, this.tile_size, "red")]
+
+    this.dibujarmapa()
 }
 
 /*World.prototype.restartPlayerPosition = function(){
@@ -76,6 +86,7 @@ World.prototype.actions = function(){
 World.prototype.draw = function(){
     canvas.width = canvas.width
 
+
     var tile_player_position = pointToTile(this.player.position, this.tile_size)
 
     var fix_y = 0
@@ -107,6 +118,7 @@ World.prototype.draw = function(){
     drawWord(this.ctx, "Deaths: " + this.player.total_deaths.toString(), standard_size, new Point(0,0))
     var x = (this.map.width()*this.tile_size)-75
     drawWord(this.ctx, this.chrono.toString(), standard_size, new Point(x,0))
+    
 }
 
 World.prototype.update = function(delta_time){
@@ -188,3 +200,16 @@ World.prototype.checkPlayerInsideWalkableTile = function(){
 	}
     return false
 }*/
+
+World.prototype.dibujarmapa = function(){
+    var filas = this.map.length
+    var col = this.map[0].length
+
+    for (var mapfilas = 0; mapfilas < filas; mapfilas++)
+    {
+        for (var mapcol = 0; mapcol < col; mapcol++)
+        {
+            this.conjuntotile[this.map[mapfilas][mapcol]].draw(this.ctx, mapfilas, mapcol, new Point(0,0))
+        }
+    }
+}

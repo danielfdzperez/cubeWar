@@ -7,7 +7,7 @@
 function Tile(walkable, size, color/*, size, image, damage, animation*/){
     this.walkable    = walkable
     this.size        = size
-    //this.color       = color
+    this.color       = color
     //this.image       = image
     //this.animation   = animation
     //this.damage      = damage
@@ -27,6 +27,14 @@ Tile.prototype.draw = function(ctx, y, x, distance){
     ctx.lineWidth  = 0.8
     ctx.strokeRect(x*this.size + distance.x, y*this.size + distance.y, this.size, this.size)
 }
+
+/*Tile.prototype.draw = function(ctx, y, x /*distance){
+    ctx.fillStyle = this.color
+    ctx.fillRect(x*this.size, y*this.size, this.size, this.size)
+    ctx.strokeStyle = 'black'
+    ctx.lineWidth  = 0.8
+    ctx.strokeRect(x*this.size, y*this.size, this.size, this.size) 
+}*/
 
 /*
  * Devuelve el atributo walkable
