@@ -33,7 +33,7 @@ Leaf.prototype.split = function() {
 	if (max <= this.min_leaf_size)
 		return false
 
-	var split = Leaf.getRandomInt(this.min_leaf_size, max)
+	var split = this.getRandomInt(this.min_leaf_size, max)
 	if (splitH){
 		leftChild 	= new Leaf(x, y, width, split)
 		rightChild 	= new Leaf(x, y, width, height - split)
