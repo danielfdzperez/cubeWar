@@ -39,12 +39,12 @@ function MultidimensionalArray(dim, size){
 	//Si se llega al final del tamaño de una dimension
 	if(n <= 1){
 	    var array = []
-	    array[n-1] = rec(dim-1, size, size)
+	    array[n-1] = buildMultidimensionalArray(dim-1, size, size)
 	    return array
 	}
 
-	var array = rec(dim, n-1, size)
-	array[n-1] = rec(dim-1, size, size)
+	var array =  buildMultidimensionalArray(dim, n-1, size)
+	array[n-1] = buildMultidimensionalArray(dim-1, size, size)
 	return array
     }
 }
